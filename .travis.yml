@@ -7,14 +7,14 @@ branches:
   only:
   - master
 script:
-- yarn install
-- yarn test
-- yarn build
+  - yarn install
+  - yarn test
+  - yarn build
 install: yarn global add firebase-tools
 after_success:
-- firebase use --token ${FIREBASE_TOKEN}
-- firebase use --add ${PROJECT_ID}
-- firebase deploy --non-interactive --token "${FIREBASE_TOKEN}"
+  - firebase use --token ${FIREBASE_TOKEN}
+  - firebase use --add ${PROJECT_ID}
+  - firebase deploy --non-interactive --token "${FIREBASE_TOKEN}"
 notifications:
   webhooks:
     urls:
